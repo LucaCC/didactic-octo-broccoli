@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <form action="/action_page.php">
-      <select name="states">
-        {{states}}
-      </select>
-      <br><br>
-      <input type="submit">
-    </form>
-    <p>{{fun_fact}}</p>
-  </body>
+
+<body>
+  <form action="/">
+    <select name="states">
+      {{states}}
+    </select>
+    <br><br>
+    <input type="submit">
+  </form>
+  <h1>{{s}}</h1>
+  <p>{{s_fun_fact}}</p>
+  <form action="/">
+    <select name="counties">
+      {{counties}}
+    </select>
+    <br><br>
+    <input type="submit">
+  </form>
+  <h1>{{c}}</h1>
+  <p>{{c_fun_fact}}</p>
+</body>
+
 </html>
