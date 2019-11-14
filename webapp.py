@@ -14,11 +14,10 @@ def render_main():
         return render_template('Home.html', states=get_state_options(counties), s_fun_fact=state_fun_fact(request.args['states'], counties), s=request.args['states'], counties=get_counties_options(counties, request.args['states']))
 
     elif 'counties' in request.args:
-      return render_template('Home.html', states=get_state_options(counties), c_fun_fact=county_fun_fact(request.args['counties'], counties), c=request.args['counties'])
+        return render_template('Home.html', states=get_state_options(counties), c_fun_fact=county_fun_fact(request.args['counties'], counties), c=request.args['counties'])
 
     else:
         return render_template('Home.html', states=get_state_options(counties))
-
 
 
 def state_fun_fact(state_chosen, counties):
@@ -30,11 +29,12 @@ def state_fun_fact(state_chosen, counties):
         if data["State"] == state_chosen:
             pct_under_18 += data["Age"]["Percent Under 18 Years"]
             count += 1
-    pct_under_18 = round((pct_under_18/count), 2)
+    pct_under_18 = round((pct_under_18 / count), 2)
 
     state_fun_fact = pct_under_18
 
     return key + str(state_fun_fact)
+
 
 def county_fun_fact(county_chosen, counties):
     county_fun_fact = ""
@@ -59,6 +59,7 @@ def get_state_options(counties):
         options = options + \
             Markup("<option value=\"" + data + "\">" + data + "</option>")
     return options
+
 
 def get_counties_options(counties, state):
     county = []
